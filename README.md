@@ -57,6 +57,13 @@ coldstar
 - macOS (Apple Silicon or Intel)
 - USB drive for cold wallet operations
 
+## Documentation
+
+**ColdStar Whitepaper** - Deep dive into the security architecture, cryptographic design, and implementation details:
+- [Download the Whitepaper (PDF)](https://gumroad.com/l/coldstar-whitepaper) - Free
+
+Learn about RAM-only key exposure, Rust secure memory implementation, and the threat model ColdStar defends against.
+
 ## What is ColdStar?
 
 ColdStar is a security-focused cold wallet system for Solana that:
