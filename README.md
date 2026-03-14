@@ -1,77 +1,44 @@
-# Homebrew Tap for ColdStar
+# Homebrew Tap for Coldstar
 
-This is the official Homebrew tap for [ColdStar](https://github.com/PurpleSquirrelMedia/coldstar-distro-build-mc) - a CLI-first cold wallet system that transforms USB drives into disposable, RAM-only signing mediums.
+Official Homebrew tap for [Coldstar](https://github.com/ExpertVagabond/coldstar-rs) -- an air-gapped cold wallet for Solana and Base, written entirely in Rust.
 
-## Installation Options
-
-### Option 1: Standalone Executable (Recommended)
-
-No dependencies required - just download and run:
+## Install
 
 ```bash
-brew tap PurpleSquirrelMedia/coldstar
-brew install --cask coldstar-standalone
-```
-
-### Option 2: From Source (requires Python & Rust)
-
-```bash
-brew tap PurpleSquirrelMedia/coldstar
+brew tap ExpertVagabond/coldstar
 brew install coldstar
-```
-
-### Option 3: Docker Version
-
-```bash
-brew tap PurpleSquirrelMedia/coldstar
-brew install --cask coldstar-docker
 ```
 
 ## Usage
 
-After installation, run:
-
 ```bash
-coldstar
+coldstar --help
 ```
 
-## What's Included
+## What is Coldstar?
 
-| Package | Description | Dependencies |
-|---------|-------------|--------------|
-| `coldstar-standalone` | 21MB self-contained binary | None |
-| `coldstar` | Build from source | Python 3.12, Rust |
-| `coldstar-docker` | Docker container version | Docker |
+Coldstar is a pure-Rust cold wallet CLI that enforces air-gap signing via USB shuttle. It supports Solana (Ed25519) and Base/EVM (secp256k1) with zero-knowledge proofs, secure memory (mlock + zeroize), and a full TUI dashboard.
 
-## Security Features
+### v0.2.0 Highlights
 
-- Rust secure memory (mlock)
-- Argon2id key derivation (64MB, 3 iterations)
-- AES-256-GCM encryption
-- Ed25519 signing
-- Auto-zeroization after use
-- Private keys never in Python memory
+- 12 Rust crates, 18,380 lines, 228 tests
+- Zero Python dependency -- single binary
+- AES-256-GCM encryption with Argon2id KDF
+- Schnorr NIZK, range proofs, policy proofs
+- Token-2022 / confidential transfer support
+- Cross-platform USB detection (macOS, Linux, Windows)
 
 ## Requirements
 
-- macOS (Apple Silicon or Intel)
-- USB drive for cold wallet operations
+- macOS or Linux (Apple Silicon, Intel, x86_64)
+- Rust toolchain (installed automatically by Homebrew)
+- USB drive for air-gapped signing operations
 
-## Documentation
+## Also available via Cargo
 
-**ColdStar Whitepaper** - Deep dive into the security architecture, cryptographic design, and implementation details:
-- [Download the Whitepaper (PDF)](https://gumroad.com/l/coldstar-whitepaper) - Free
-
-Learn about RAM-only key exposure, Rust secure memory implementation, and the threat model ColdStar defends against.
-
-## What is ColdStar?
-
-ColdStar is a security-focused cold wallet system for Solana that:
-
-- Transforms any USB drive into a disposable signing medium
-- Operates entirely in RAM for maximum security
-- Uses Rust-based cryptographic signing with memory-locked encryption
-- Provides a CLI interface for transaction signing
+```bash
+cargo install coldstar
+```
 
 ## License
 
