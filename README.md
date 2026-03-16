@@ -1,6 +1,11 @@
-# Homebrew Tap for Coldstar
+# homebrew-coldstar
 
-Official Homebrew tap for [Coldstar](https://github.com/ExpertVagabond/coldstar-rs) -- an air-gapped cold wallet for Solana and Base, written entirely in Rust.
+**Official Homebrew tap for [ColdStar](https://github.com/ExpertVagabond/coldstar-colosseum) — a CLI-first cold wallet that transforms USB drives into disposable, RAM-only signing mediums.**
+
+![Homebrew](https://img.shields.io/badge/Homebrew-FBB040?logo=homebrew&logoColor=black)
+![Solana](https://img.shields.io/badge/Solana-9945FF?logo=solana&logoColor=white)
+![Rust](https://img.shields.io/badge/Rust-000000?logo=rust&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Install
 
@@ -9,37 +14,37 @@ brew tap ExpertVagabond/coldstar
 brew install coldstar
 ```
 
-## Usage
+## What is ColdStar?
+
+ColdStar is a Solana cold wallet with military-grade security:
+
+- **RAM-only operation** — keys never touch disk
+- **Argon2id** key derivation (64MB, 3 iterations)
+- **AES-256-GCM** encryption with auto-zeroization
+- **Ed25519** signing with Solana RPC broadcasting
+- **USB drive** transforms into a disposable signing medium
+
+## Available Formulae
+
+| Formula | Description |
+|---------|-------------|
+| `coldstar` | CLI binary (Apple Silicon + Intel) |
+
+## From Source
 
 ```bash
-coldstar --help
+brew install --build-from-source coldstar
 ```
 
-## What is Coldstar?
+## Links
 
-Coldstar is a pure-Rust cold wallet CLI that enforces air-gap signing via USB shuttle. It supports Solana (Ed25519) and Base/EVM (secp256k1) with zero-knowledge proofs, secure memory (mlock + zeroize), and a full TUI dashboard.
-
-### v0.2.0 Highlights
-
-- 12 Rust crates, 18,380 lines, 228 tests
-- Zero Python dependency -- single binary
-- AES-256-GCM encryption with Argon2id KDF
-- Schnorr NIZK, range proofs, policy proofs
-- Token-2022 / confidential transfer support
-- Cross-platform USB detection (macOS, Linux, Windows)
-
-## Requirements
-
-- macOS or Linux (Apple Silicon, Intel, x86_64)
-- Rust toolchain (installed automatically by Homebrew)
-- USB drive for air-gapped signing operations
-
-## Also available via Cargo
-
-```bash
-cargo install coldstar
-```
+- [ColdStar Main Repo](https://github.com/ExpertVagabond/coldstar-colosseum)
+- [Whitepaper](https://github.com/ExpertVagabond/coldstar-colosseum/blob/main/WHITEPAPER.md)
 
 ## License
 
-MIT
+[MIT](LICENSE)
+
+## Author
+
+Built by [Purple Squirrel Media](https://purplesquirrelmedia.io)
